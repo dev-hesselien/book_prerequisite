@@ -1,5 +1,5 @@
 import unittest 
-from Sender import *
+from Signer import *
 from DataStructure import *
 
 class TestMerkleTree(unittest.TestCase):
