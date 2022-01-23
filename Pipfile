@@ -1,0 +1,13 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+ecdsa = "0.17.0"
+unittest2 = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
