@@ -3,8 +3,9 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
-[packages]c
+[packages]
 unittest2 = "*"
+cryptography = "*"
 
 [dev-packages]
 
