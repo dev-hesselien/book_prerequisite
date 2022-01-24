@@ -5,9 +5,9 @@ name = "pypi"
 
 [packages]
 unittest2 = "*"
-cryptography = "*"
 
 [dev-packages]
+cryptography = "*"
 
 [requires]
 python_version = "3.10"
