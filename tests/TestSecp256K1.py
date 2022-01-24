@@ -5,5 +5,4 @@ class TestMerkleTree(unittest.TestCase):
     def test_generate_private_key(self) :
         keyClass = Secp256k1()
         test = keyClass.create_private_key(b"hello")
-        print(test)
-        self.assertEqual('yo', test)
+        self.assertIsInstance(test, bytes)
