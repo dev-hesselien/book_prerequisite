@@ -21,3 +21,7 @@ class TestSecp256K1c(unittest.TestCase):
         keyClass = Secp256k1()
         private_key = keyClass.get_private_key()
         self.assertIsInstance(private_key, EllipticCurvePrivateKey)
+    
+    def test_decrypt_data(self):
+        
+        pass
