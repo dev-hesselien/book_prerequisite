@@ -29,3 +29,6 @@ class Secp256k1:
         sha256 =  crypt.crypt(str_public_key, crypt.METHOD_SHA256)
         return sha256
     
+    def hash_derived_hashed_public_key_in_ripemd160(self, hash: str) -> str:
+        pass
+    
