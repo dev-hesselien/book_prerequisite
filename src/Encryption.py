@@ -4,6 +4,7 @@ from cryptography.hazmat.primitives.asymmetric.ec import EllipticCurvePrivateKey
 from cryptography.hazmat.primitives.asymmetric.ec import EllipticCurveSignatureAlgorithm
 from cryptography.hazmat.primitives.serialization import Encoding
 from cryptography.hazmat.primitives.serialization import PublicFormat
+from Crypto.Hash import RIPEMD160
 import crypt
 class Secp256k1:
     
@@ -31,4 +32,3 @@ class Secp256k1:
     
     def hash_derived_hashed_public_key_in_ripemd160(self, hash: str) -> str:
         pass
-    
