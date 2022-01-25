@@ -1,4 +1,5 @@
-import unittest 
+import unittest
+from DataStructure import DataStructure 
 from src.Encryption import *
 class TestSecp256K1c(unittest.TestCase):
     
@@ -23,5 +24,7 @@ class TestSecp256K1c(unittest.TestCase):
         self.assertIsInstance(private_key, EllipticCurvePrivateKey)
     
     def test_decrypt_data(self):
-        
+        data = DataStructure()
+        message_to_decrypt = data.data('Hello World')
+
         pass
