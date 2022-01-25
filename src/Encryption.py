@@ -20,6 +20,7 @@ class Secp256k1:
         public_key = private_key.public_key().public_bytes(Encoding.PEM, PublicFormat.SubjectPublicKeyInfo)
         return public_key
 
+    # need to be a one way hash function 
     def generate_bitcoin_address():
         pass
     
