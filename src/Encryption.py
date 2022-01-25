@@ -19,4 +19,7 @@ class Secp256k1:
     def get_public_key(self, private_key: EllipticCurvePrivateKey) -> bytes:
         public_key = private_key.public_key().public_bytes(Encoding.PEM, PublicFormat.SubjectPublicKeyInfo)
         return public_key
+
+    def generate_bitcoin_address():
+        pass
     
