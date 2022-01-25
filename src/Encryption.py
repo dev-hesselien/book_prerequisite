@@ -24,7 +24,8 @@ class Secp256k1:
     # need to be a one way hash function 
     # address is derived from public key
     # the public key is hashed thanks to sha256 then RIPEMD160 one way hash function
-    def generate_bitcoin_address(self, public_key: bytes):
-        sha256 =  crypt.crypt('hello', crypt.METHOD_SHA256)
+    def hash_public_key_in_sha256_(self, public_key: bytes):
+        str_public_key = public_key.decode("utf-8")
+        sha256 =  crypt.crypt(str_public_key, crypt.METHOD_SHA256)
         return sha256
     
