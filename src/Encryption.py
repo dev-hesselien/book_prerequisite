@@ -4,6 +4,7 @@ from cryptography.hazmat.primitives.asymmetric.ec import EllipticCurvePrivateKey
 from cryptography.hazmat.primitives.asymmetric.ec import EllipticCurveSignatureAlgorithm
 from cryptography.hazmat.primitives.serialization import Encoding
 from cryptography.hazmat.primitives.serialization import PublicFormat
+import crypt
 class Secp256k1:
     
     def define_signature_from_private_key(self, private_key: EllipticCurvePrivateKey, mnemonic: bytes)-> bytes:
@@ -21,6 +22,9 @@ class Secp256k1:
         return public_key
 
     # need to be a one way hash function 
-    def generate_bitcoin_address():
-        pass
+    # address is derived from public key
+    # the public key is hashed thanks to sha256 then RIPEMD160 one way hash function
+    def generate_bitcoin_address(self, public_key: bytes):
+        sha256 =  crypt.crypt('hello', crypt.METHOD_SHA256)
+        return sha256
     
