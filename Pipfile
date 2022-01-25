@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 unittest2 = "*"
 pycryptodome = "*"
+pycryptodome-test-vectors = "*"
 
 [dev-packages]
 cryptography = "*"

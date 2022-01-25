@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "17beb90b05903611fdf9796fafe0a32f63ab6e67fe09d3f88cce44d55ba42ca9"
+            "sha256": "5d5901d4ca27c56ba47dbe6fce1fa561c7aaf36ef176f06758e063a40e1cc29e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -65,6 +65,13 @@
             ],
             "index": "pypi",
             "version": "==3.13.0"
+        },
+        "pycryptodome-test-vectors": {
+            "hashes": [
+                "sha256:a0d7c8566ef0ca1814f6980385d3fa05525e86e130e1ddb7f060da60cb8060b4"
+            ],
+            "index": "pypi",
+            "version": "==1.0.6"
         },
         "six": {
             "hashes": [
