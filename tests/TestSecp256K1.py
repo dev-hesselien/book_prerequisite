@@ -27,7 +27,7 @@ class TestSecp256K1c(unittest.TestCase):
         keyClass = Secp256k1()
         private_key = keyClass.get_private_key()
         public_key = keyClass.get_public_key(private_key)
-        test_generate_bitcoin_address = keyClass.generate_bitcoin_address(public_key)
+        test_generate_bitcoin_address = keyClass.hash_public_key_in_sha256_(public_key)
         self.assertEqual('test', test_generate_bitcoin_address)
 
 
