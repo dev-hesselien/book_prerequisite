@@ -8,6 +8,7 @@ unittest2 = "*"
 pycryptodome = "*"
 pycryptodome-test-vectors = "*"
 pycryptodomex = "*"
+base58 = "*"
 
 [dev-packages]
 cryptography = "*"
