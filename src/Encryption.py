@@ -41,3 +41,7 @@ class Secp256k1:
     def base_58_encode_public_key(self, double_hashed_public_key: str) -> bytes:
         base_58_encoded_public_key = base58.b58encode(double_hashed_public_key)
         return base_58_encoded_public_key
+
+    def base_58_check_to_apply_to_public_key(self, base_58_encoded_public_key) -> bytes:
+        base_58_check = base58.b58encode_check(base_58_encoded_public_key)
+        return base_58_check
