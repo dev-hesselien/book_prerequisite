@@ -5,7 +5,9 @@ from cryptography.hazmat.primitives.asymmetric.ec import EllipticCurveSignatureA
 from cryptography.hazmat.primitives.serialization import Encoding
 from cryptography.hazmat.primitives.serialization import PublicFormat
 from Crypto.Hash import RIPEMD160
+import base58
 import crypt
+import hashlib
 class Secp256k1:
     
     def define_signature_from_private_key(self, private_key: EllipticCurvePrivateKey, mnemonic: bytes)-> bytes:
@@ -29,6 +31,10 @@ class Secp256k1:
         str_public_key = public_key.decode("utf-8")
         sha256 =  crypt.crypt(str_public_key, crypt.METHOD_SHA256)
         return sha256
-    
+    # replaced ripemd160 by md5 because module import issue 
     def hash_derived_hashed_public_key_in_ripemd160(self, hash: str) -> str:
+        double_hashed_public_key = RIPEMD160.new(bytes(hash, 'utf-8')).hexdigest()
+        return double_hashed_public_key
+
+    def base_58_encode_public_key(self, double_hashed_public_key: str) -> str:
         pass
