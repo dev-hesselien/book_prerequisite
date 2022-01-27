@@ -36,5 +36,8 @@ class Secp256k1:
         double_hashed_public_key = RIPEMD160.new(bytes(hash, 'utf-8')).hexdigest()
         return double_hashed_public_key
 
-    def base_58_encode_public_key(self, double_hashed_public_key: str) -> str:
-        pass
+
+    # we apply a bitcoin's standard that encode a base58 encoding to the double hashed public key
+    def base_58_encode_public_key(self, double_hashed_public_key: str) -> bytes:
+        base_58_encoded_public_key = base58.b58encode(double_hashed_public_key)
+        return base_58_encoded_public_key
