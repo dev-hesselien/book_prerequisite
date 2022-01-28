@@ -9,9 +9,10 @@ pycryptodome = "*"
 pycryptodome-test-vectors = "*"
 pycryptodomex = "*"
 base58 = "*"
+cryptography = "*"
 
 [dev-packages]
 cryptography = "*"
 
 [requires]
-python_version = "3.10"
+python_version = "3.9.10"
