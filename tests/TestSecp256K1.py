@@ -1,6 +1,6 @@
 import unittest
-from Secp265k1 import *
-class TestSecp256K1c(unittest.TestCase):
+from src.Secp265k1 import *
+class TestSecp256K1(unittest.TestCase):
     
     def test_generate_signature_for_private_key(self) :
         keyClass = Secp256k1()
@@ -34,7 +34,7 @@ class TestSecp256K1c(unittest.TestCase):
     def test_hash_derived_hashed_publick_key_in_ripemd160(self):
         hash_class = Secp256k1()
         test_hash_derivied_hashed_public_key_in_ripemd160 = hash_class.hash_derived_hashed_public_key_in_ripemd160('str²')
-        self.assertIsInstance(test_hash_derivied_hashed_public_key_in_ripemd160, str)
+        self.assertIsInstance(test_hash_derivied_hashed_public_key_in_ripemd160, bytes)
 
     def test_base_58_encode_public_key(self):
         hash_class = Secp256k1()
