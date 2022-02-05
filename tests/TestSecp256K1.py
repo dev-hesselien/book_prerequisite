@@ -1,5 +1,5 @@
 import unittest
-from src.Encryption import *
+from Secp265k1 import *
 class TestSecp256K1c(unittest.TestCase):
     
     def test_generate_signature_for_private_key(self) :
