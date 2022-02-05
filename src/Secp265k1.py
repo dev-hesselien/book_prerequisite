@@ -32,14 +32,13 @@ class Secp256k1:
         sha256 =  crypt.crypt(str_public_key, crypt.METHOD_SHA256)
         return sha256
     # replaced ripemd160 by md5 because module import issue 
-    def hash_derived_hashed_public_key_in_ripemd160(self, hash: str) -> str:
+    def hash_derived_hashed_public_key_in_ripemd160(self, hash: str) -> bytes:
         double_hashed_public_key = RIPEMD160.new(bytes(hash, 'utf-8')).hexdigest()
-        return double_hashed_public_key
-
+        return bytes(double_hashed_public_key, 'utf-8')
 
     # we apply a bitcoin's standard that encode a base58 encoding to the double hashed public key
     def base_58_encode_public_key(self, double_hashed_public_key: str) -> bytes:
-        base_58_encoded_public_key = base58.b58encode(double_hashed_public_key)
+        base_58_encoded_public_key = base58.b58encode(b'\0\0' + double_hashed_public_key)
         return base_58_encoded_public_key
 
     def base_58_check_to_apply_to_public_key(self, base_58_encoded_public_key) -> bytes:
