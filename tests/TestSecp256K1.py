@@ -1,6 +1,6 @@
 import unittest
-from src.Encryption import *
-class TestSecp256K1c(unittest.TestCase):
+from src.Secp265k1 import *
+class TestSecp256K1(unittest.TestCase):
     
     def test_generate_signature_for_private_key(self) :
         keyClass = Secp256k1()
@@ -24,10 +24,33 @@ class TestSecp256K1c(unittest.TestCase):
     
 
     def test_generate_address_from_public_key(self):
-        keyClass = Secp256k1()
-        private_key = keyClass.get_private_key()
-        public_key = keyClass.get_public_key(private_key)
-        test_generate_bitcoin_address = keyClass.hash_public_key_in_sha256_(public_key)
-        self.assertEqual('test', test_generate_bitcoin_address)
+        hash_class = Secp256k1()
+        private_key = hash_class.get_private_key()
+        public_key = hash_class.get_public_key(private_key)
+        test_hash_public_key_in_sha256_address = hash_class.hash_public_key_in_sha256_(public_key)
+        self.assertIsInstance(test_hash_public_key_in_sha256_address, str)
 
 
+    def test_hash_derived_hashed_publick_key_in_ripemd160(self):
+        hash_class = Secp256k1()
+        test_hash_derivied_hashed_public_key_in_ripemd160 = hash_class.hash_derived_hashed_public_key_in_ripemd160('str²')
+        self.assertIsInstance(test_hash_derivied_hashed_public_key_in_ripemd160, bytes)
+
+    def test_base_58_encode_public_key(self):
+        hash_class = Secp256k1()
+        private_key = hash_class.get_private_key()
+        public_key = hash_class.get_public_key(private_key)
+        hash = hash_class.hash_public_key_in_sha256_(public_key)
+        double_hashed_public_key = hash_class.hash_derived_hashed_public_key_in_ripemd160(hash)
+        test_base_58_encode_public_key = hash_class.base_58_encode_public_key(double_hashed_public_key)
+        self.assertIsInstance(test_base_58_encode_public_key, bytes)
+
+    def test_base_58_check_to_apply_to_public_key(self):
+        hash_class = Secp256k1()
+        private_key = hash_class.get_private_key()
+        public_key = hash_class.get_public_key(private_key)
+        hash = hash_class.hash_public_key_in_sha256_(public_key)
+        double_hashed_public_key = hash_class.hash_derived_hashed_public_key_in_ripemd160(hash)
+        base_58_encoded_public_key = hash_class.base_58_encode_public_key(double_hashed_public_key)
+        test_base_58_check_to_apply_to_public_key = hash_class.base_58_check_to_apply_to_public_key(base_58_encoded_public_key)
+        self.assertIsInstance(test_base_58_check_to_apply_to_public_key, bytes)
